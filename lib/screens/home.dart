@@ -1,104 +1,114 @@
+import 'package:android1/screens/medicine.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 import 'tracing.dart';
 import 'venues.dart';
 import 'symptoms.dart';
+import 'countdown.dart';
+import 'venues.dart';
+
 
 class home extends StatelessWidget {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text('covid tracker'),
-                    actions: <Widget>[
-          IconButton(
-            icon: Icon(
-                Icons.settings,
-                size:30,
-                color: Colors.white,
-      ),
-      onPressed: () {
-          //settings
-      },
-    )
-  ],
+          backgroundColor: const Color(0xff9e0091),
+           actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('logout'),
+              onPressed: () async {
+                await _auth.signOut();
+              }
+        ),
+                  ],
         ),
         body: Padding(
-            
             padding: EdgeInsets.all(10),
             child: ListView(
               children: <Widget>[
-               
-              
-                  
                 Container(
-                  height: 50,
+                    height: 50,
                     padding: EdgeInsets.only(top: 5),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
+                      color: Colors.purple,
                       child: Text('tracker'),
                       onPressed: () {
                         Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Tracing()),
-            );
+                          context,
+                          MaterialPageRoute(builder: (context) => Tracing()),
+                        );
                       },
                     )),
-                     Container(
-                  height: 50,
-                    padding:  EdgeInsets.only(top: 5),
+                Container(
+                    height: 50,
+                    padding: EdgeInsets.only(top: 5),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
+                      color: Colors.purple,
                       child: Text('risk level'),
-                      onPressed: () {
-                
-                      },
+                      onPressed: () {},
                     )),
-             Container(
-                  height: 50,
-                    padding:  EdgeInsets.only(top: 5),
+                Container(
+                    height: 50,
+                    padding: EdgeInsets.only(top: 5),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
-                      child: Text('check into venues'),
+                      color: Colors.purple,
+                      child: Text('venues places'),
                       onPressed: () {
                         Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Venues()),
-            );
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
                       },
                     )),
-                    Container(
-                  height: 50,
-                    padding:  EdgeInsets.only(top: 5),
+                Container(
+                    height: 50,
+                    padding: EdgeInsets.only(top: 5),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
+                      color: Colors.purple,
+                      child: Text('Medicine'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Medicine()),
+                        );
+                      },
+                    )),
+                Container(
+                    height: 50,
+                    padding: EdgeInsets.only(top: 5),
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.purple,
                       child: Text('check symptoms'),
                       onPressed: () {
                         Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => symptoms()),
-            );
+                          context,
+                          MaterialPageRoute(builder: (context) => symptoms()),
+                        );
                       },
                     )),
-               
-                    Container(
-                  height: 50,
-                    padding:  EdgeInsets.only(top: 5),
+                Container(
+                    height: 50,
+                    padding: EdgeInsets.only(top: 5),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
+                      color: Colors.purple,
                       child: Text('self isolation countdown'),
-                   /*  onPressed: () {
+                      onPressed: () {
                         Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Selfiso()),
-            );
-                      },*/
+                          context,
+                          MaterialPageRoute(builder: (context) => countdown()),
+                        );
+                      },
                     )),
               ],
             )));

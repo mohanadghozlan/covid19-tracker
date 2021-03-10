@@ -1,6 +1,7 @@
 //import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+ final FirebaseAuth _auth = FirebaseAuth.instance;
 Future<bool> signIn(String email, String password) async {
   try {
     await FirebaseAuth.instance
@@ -31,3 +32,14 @@ Future<bool> register(String email, String password) async {
     return false;
   }
 }
+
+Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
+  }
+
+

@@ -21,7 +21,7 @@ class _AuthenticationState extends State<Authentication> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          color: Colors.blueAccent,
+          color: Colors.limeAccent,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -72,11 +72,11 @@ class _AuthenticationState extends State<Authentication> {
                 color: Colors.white,
               ),
               child: MaterialButton(
-                onPressed: () async {
+                onPressed: () {/* async {
                   bool shouldNavigate =
                       await register(_emailField.text, _passwordField.text);
                   print(shouldNavigate);
-                  if (shouldNavigate) {
+                  if (shouldNavigate) { */
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -84,7 +84,7 @@ class _AuthenticationState extends State<Authentication> {
                       ),
                     );
                   }
-                },
+                ,
                 child: Text("Register"),
               ),
             ),
@@ -97,18 +97,18 @@ class _AuthenticationState extends State<Authentication> {
                 color: Colors.white,
               ),
               child: MaterialButton(
-                  onPressed: () async {
+                  onPressed: () {/*async {
                     bool shouldNavigate =
                         await signIn(_emailField.text, _passwordField.text);
                     if (shouldNavigate) {
-                      Navigator.push(
+                      */ Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => home(),
                         ),
                       );
                     }
-                  },
+                  ,
                   child: Text("Login")),
             ),
           ],
